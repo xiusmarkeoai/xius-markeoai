@@ -7,8 +7,15 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
    */
   context.log.info(`Fetching data from Supabase`);
 
+  const adId = request.params["adId"];
+  context.log.info(adId);
+  if (!adId) {
+    context.log.error("No adid provided in the query parameters.");
+    return "Error: No adid provided.";
+  }
+
   // The Supabase URL
-  const supabaseUrl = "https://app.adtochatbot.com/rest/v1/advertisement?select=*";
+  const supabaseUrl = "https://app.adtochatbot.com/rest/v1/advertisement?ad_id=eq." + adId + "&select=text,link,highlight";
 
   // Supabase API Key (replace 'YOUR_SUPABASE_KEY' with your actual key)
   const supabaseKey = environment.SUPABASE_API_KEY;
@@ -31,8 +38,13 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
 
   const data = await response.json();
 
+  const filteredData = data.map(ad => ({
+    text: ad.text,
+    link: ad.link,
+    highlight: ad.highlight
+  }))
   context.log.info(`Successfully fetched data from Supabase`);
-    return data;
+    return filteredData[0];
   } catch (error) {
     // Log any errors that occur during the fetch operation
     context.log.error(`Error fetching data from Supabase: ${error}`);
