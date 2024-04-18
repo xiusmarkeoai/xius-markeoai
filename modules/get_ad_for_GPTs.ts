@@ -116,12 +116,12 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
     */
     context.log.info("Successfully processed advertisement impression and retrieved details.");
     return {
-      intro_text: ad.intro_text,
-      target: ad.target,
-      text: ad.text,
-      show_exact_text: ad.show_exact_text,
-      link: URL,
-      image: ad.image_link
+      //intro_text: ad.intro_text,
+      //target: ad.target,
+      //text: ad.text,
+      //show_exact_text: ad.show_exact_text,
+      redirect_link: URL,
+      image_link: ad.image_link
     };
   } catch (error) {
     context.log.error(`Error: ${error.message}`);
