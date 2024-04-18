@@ -121,7 +121,7 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
       text: ad.text,
       show_exact_text: ad.show_exact_text,
       link: URL,
-      image: ad.image
+      image: ad.image_link
     };
   } catch (error) {
     context.log.error(`Error: ${error.message}`);
