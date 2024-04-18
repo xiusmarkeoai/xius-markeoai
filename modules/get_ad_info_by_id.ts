@@ -70,7 +70,8 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
       show_exact_text: ad.show_exact_text,
       coupon_code: ad.coupon_code,
       target: ad.target,
-      intro_text: ad.intro_text
+      intro_text: ad.intro_text,
+      image: ad.image
     };  
 
     context.log.info(`Successfully fetched advertisement details and metrics`);
