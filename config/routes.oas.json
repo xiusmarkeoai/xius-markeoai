@@ -397,6 +397,31 @@
         },
         "operationId": "f51b68ef-520d-4e82-b40a-0b24a211023f"
       }
+    },
+    "/acceptprofilepayment/{user_id}": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "post": {
+        "summary": "AcceptProfilePayment",
+        "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "default",
+            "module": "$import(./modules/acceptprofilepayment)",
+            "options": {}
+          },
+          "policies": {
+            "inbound": [
+              "api-key-inbound",
+              "clear-headers-inbound",
+              "set-headers-inbound"
+            ]
+          }
+        },
+        "operationId": "95ae833a-81d7-47cb-a8d8-1d39123cb085"
+      }
     }
   }
 }
