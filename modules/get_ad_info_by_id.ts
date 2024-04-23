@@ -72,7 +72,8 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
       target: ad.target,
       intro_text: ad.intro_text,
       image: ad.image,
-      activated: ad.activated
+      activated: ad.activated,
+      dailybudget: ad.dailybudget
     };  
 
     context.log.info(`Successfully fetched advertisement details and metrics`);
