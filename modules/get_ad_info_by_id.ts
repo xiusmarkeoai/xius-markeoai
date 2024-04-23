@@ -71,7 +71,8 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
       coupon_code: ad.coupon_code,
       target: ad.target,
       intro_text: ad.intro_text,
-      image: ad.image
+      image: ad.image,
+      activated: ad.activated
     };  
 
     context.log.info(`Successfully fetched advertisement details and metrics`);
