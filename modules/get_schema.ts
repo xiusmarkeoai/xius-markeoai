@@ -37,7 +37,7 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
         post: {
           operationId: "getAdInfo",
           summary: "Returns advertisement details for this chatbot",
-          description: "Retrieves advertisement details including redirect link and image link.",
+          description: "Retrieves advertisement details including destination link and image link.",
           parameters: [
             {
               in: "query",
@@ -50,7 +50,7 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
           ],
           responses: {
             "200": {
-              description: "A JSON object containing the advertisement redirect link and image link for this chatbot",
+              description: "A JSON object containing the advertisement destination link and image link for this chatbot",
               content: {
                 "application/json": {
                   schema: {
@@ -70,7 +70,7 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
           properties: {
             text: {
               type: "string",
-              description: "The advertisement text, which may include redirect link and image link.",
+              description: "The advertisement text, which may include destination link and image link.",
             },
           },
         },

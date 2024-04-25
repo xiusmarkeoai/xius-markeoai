@@ -120,7 +120,7 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
       //target: ad.target,
       //text: ad.text,
       //show_exact_text: ad.show_exact_text,
-      redirect_link: URL,
+      destination_link: URL,
       image_link: ad.image_link
     };
   } catch (error) {
