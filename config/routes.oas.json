@@ -268,7 +268,6 @@
           },
           "policies": {
             "inbound": [
-              "api-key-inbound",
               "clear-headers-inbound",
               "set-headers-inbound"
             ]
