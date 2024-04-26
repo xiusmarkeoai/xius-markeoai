@@ -6,7 +6,10 @@
         "module": "$import(@zuplo/runtime)",
         "options": {
           "allowUnauthenticatedRequests": false,
-          "cacheTtlSeconds": 60
+          "cacheTtlSeconds": 60,
+          "authScheme": "",
+          "authHeader": "adtochatbot-api",
+          "bucketName": "zprj-bii0oxxv0jsasil14g0yduky-working-copy"
         }
       },
       "name": "api-key-inbound",
@@ -18,7 +21,8 @@
         "module": "$import(@zuplo/runtime)",
         "options": {
           "exclude": [
-            "content-type"
+            "content-type",
+            "adtochatbot-api"
           ]
         }
       },
