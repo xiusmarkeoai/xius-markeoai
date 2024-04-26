@@ -446,6 +446,29 @@
         },
         "operationId": "178fb438-b28c-4b74-9307-83857aafd802"
       }
+    },
+    "/removeTestAd": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "delete": {
+        "summary": "Remove Test Ad",
+        "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "default",
+            "module": "$import(./modules/removeTestAd)",
+            "options": {}
+          },
+          "policies": {
+            "inbound": [
+              "set-headers-inbound"
+            ]
+          }
+        },
+        "operationId": "843de674-ddaf-44e7-8424-2361911170e8"
+      }
     }
   }
 }
