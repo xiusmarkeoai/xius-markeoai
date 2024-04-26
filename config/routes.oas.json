@@ -21,7 +21,7 @@
           },
           "policies": {
             "inbound": [
-              "api-key-inbound",
+              "api-key-inbound-2",
               "clear-headers-inbound",
               "set-headers-inbound"
             ]
