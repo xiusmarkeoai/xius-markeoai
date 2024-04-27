@@ -34,7 +34,7 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
     ],
     paths: {
       [pathKey]: {
-        post: {
+        get: {
           operationId: "getAdInfo",
           summary: "Returns advertisement details for this chatbot",
           description: "Retrieves advertisement details including destination link and image link.",
