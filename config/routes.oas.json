@@ -210,7 +210,7 @@
       "x-zuplo-path": {
         "pathMode": "open-api"
       },
-      "post": {
+      "get": {
         "summary": "getAdInfo",
         "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
         "x-zuplo-route": {
@@ -468,6 +468,31 @@
           }
         },
         "operationId": "843de674-ddaf-44e7-8424-2361911170e8"
+      }
+    },
+    "/fetch_ad_for_test/{publisher_name}": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "post": {
+        "summary": "Fetch Advertisement for Test",
+        "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "default",
+            "module": "$import(./modules/hello-world)",
+            "options": {}
+          },
+          "policies": {
+            "inbound": [
+              "api-key-inbound",
+              "clear-headers-inbound",
+              "set-headers-inbound"
+            ]
+          }
+        },
+        "operationId": "30868f2e-efae-4b66-a0f8-03714f7472a1"
       }
     }
   }
