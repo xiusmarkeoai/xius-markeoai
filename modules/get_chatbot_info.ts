@@ -14,7 +14,7 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
 
   try {
     // Fetch chatbot information using the apiKey
-    const chatbotUrl = `https://app.adtochatbot.com/rest/v1/chatbot?select=id,userid,name,link,created_at,apiKey&apiKey=eq.${apiKey}`;
+    const chatbotUrl = `https://app.adtochatbot.com/rest/v1/chatbot?select=*&apiKey=eq.${apiKey}`;
     const chatbotResponse = await fetch(chatbotUrl, {
       headers: {
         'apikey': supabaseKey,
@@ -46,6 +46,7 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
     const totalClicks = adsStats.reduce((acc, curr) => acc + curr.clicks, 0);
     const totalRevenue = adsStats.reduce((acc, curr) => acc + curr.revenue, 0);
     const ctr = totalImpressions !== 0 ? parseFloat((totalClicks / totalImpressions * 100).toFixed(1)) : 0.0;
+    const total_ad_count = adsStats.length;
 
     // Construct and return the final object
     return {
@@ -56,12 +57,14 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
         link: chatbotData.link,
         created_at: chatbotData.created_at,
         apiKey: chatbotData.apiKey,
+        activated: chatbotData.activated
       },
       adsStats: {
         total_impressions: totalImpressions,
         total_clicks: totalClicks,
         ctr: ctr,
         total_revenue: totalRevenue,
+        total_ad_count: total_ad_count
       },
     };
   } catch (error) {
