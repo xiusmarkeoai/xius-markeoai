@@ -470,7 +470,32 @@
         "operationId": "843de674-ddaf-44e7-8424-2361911170e8"
       }
     },
-    "/fetch_ad_for_test/{publisher_name}": {
+    "/fetch_ad_to_show/{publisher_name}": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "post": {
+        "summary": "Fetch Advertisement to Show",
+        "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "default",
+            "module": "$import(./modules/fetch_ad_to_show)",
+            "options": {}
+          },
+          "policies": {
+            "inbound": [
+              "api-key-inbound",
+              "clear-headers-inbound",
+              "set-headers-inbound"
+            ]
+          }
+        },
+        "operationId": "bf51fa52-0b10-475c-ac6b-7978daf48197"
+      }
+    },
+    "/fetch_ad_for_test/": {
       "x-zuplo-path": {
         "pathMode": "open-api"
       },
@@ -493,31 +518,6 @@
           }
         },
         "operationId": "30868f2e-efae-4b66-a0f8-03714f7472a1"
-      }
-    },
-    "/fetch_ad_to_show/{publisher_name}": {
-      "x-zuplo-path": {
-        "pathMode": "open-api"
-      },
-      "get": {
-        "summary": "Fetch Advertisement to Show",
-        "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
-        "x-zuplo-route": {
-          "corsPolicy": "none",
-          "handler": {
-            "export": "default",
-            "module": "$import(./modules/fetch_ad_to_show)",
-            "options": {}
-          },
-          "policies": {
-            "inbound": [
-              "api-key-inbound",
-              "clear-headers-inbound",
-              "set-headers-inbound"
-            ]
-          }
-        },
-        "operationId": "bf51fa52-0b10-475c-ac6b-7978daf48197"
       }
     }
   }
