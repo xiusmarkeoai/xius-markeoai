@@ -73,7 +73,11 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
       intro_text: ad.intro_text,
       image: ad.image,
       activated: ad.activated,
-      dailybudget: ad.dailybudget
+      dailybudget: ad.dailybudget,
+      goal: ad.goal,
+      gender: ad.gender,
+      country: ad.country,
+      age: ad.age
     };  
 
     context.log.info(`Successfully fetched advertisement details and metrics`);
