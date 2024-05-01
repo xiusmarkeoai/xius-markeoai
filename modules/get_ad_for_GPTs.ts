@@ -38,7 +38,7 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
     const chatbotId = chatbots[0].id;
 
     // Fetch all ad_ids associated with this chatbot
-    const adsUrl = `https://app.adtochatbot.com/rest/v1/chatbot_ads?select=id,ad_id,impressions&chatbot_id=eq.${chatbotId}`;
+    const adsUrl = `https://app.adtochatbot.com/rest/v1/chatbot_ads?select=id,ad_id,impressions,userprompt&chatbot_id=eq.${chatbotId}`;
     const adsResponse = await fetch(adsUrl, {
       headers: {
         'apikey': supabaseKey,
@@ -62,6 +62,10 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
      // Manually increment the impressions for the selected advertisement
     const newImpressions = selectedAd.impressions + 1;
     const updateImpressionUrl = `https://app.adtochatbot.com/rest/v1/chatbot_ads?id=eq.${selectedAd.id}`;
+
+    // Ensure userprompt is treated as an array
+    const updatedUserPrompt = Array.isArray(selectedAd.userprompt) ? [...selectedAd.userprompt, user_text] : [user_text];
+
     await fetch(updateImpressionUrl, {
       method: 'PATCH',
       headers: {
@@ -70,7 +74,7 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
         'Content-Type': 'application/json',
         'Prefer': 'return=representation',
       },
-      body: JSON.stringify({ impressions: newImpressions }),
+      body: JSON.stringify({ impressions: newImpressions, userprompt: updatedUserPrompt }),
     });
 
     // Retrieve the custom advertisement link from chatbot_ads
