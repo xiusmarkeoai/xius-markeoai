@@ -38,7 +38,7 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
     const chatbotId = chatbots[0].id;
 
     // Fetch all ad_ids associated with this chatbot
-    const adsUrl = `https://app.adtochatbot.com/rest/v1/chatbot_ads?select=id,ad_id,impressions,userprompt&chatbot_id=eq.${chatbotId}`;
+    const adsUrl = `https://app.adtochatbot.com/rest/v1/chatbot_ads?select=id,ad_id,impressions,userprompt&chatbot_id=eq.${chatbotId}&running=eq.true`;
     const adsResponse = await fetch(adsUrl, {
       headers: {
         'apikey': supabaseKey,
