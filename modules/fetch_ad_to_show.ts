@@ -4,7 +4,7 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
   context.log.info("Processing request to increment ad impressions");
 
   const data = await request.json();
-  const requiredFields = ["user_id", "gender", "country"];
+  const requiredFields = ["user_id"];
   const missingFields = requiredFields.filter(field => !data || !data[field]);
 
   if (missingFields.length > 0) {
