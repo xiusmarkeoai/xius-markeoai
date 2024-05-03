@@ -122,7 +122,7 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
     return {
       //intro_text: ad.intro_text,
       //target: ad.target,
-      //text: ad.text,
+      text: ad.text,
       //show_exact_text: ad.show_exact_text,
       destination_link: URL,
       image_link: ad.image_link
